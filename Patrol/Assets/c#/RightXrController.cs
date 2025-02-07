@@ -13,14 +13,22 @@ public class RightXrController : MonoBehaviour
     }
 
     public void Grab() {
-        rightHandController = GetComponentInChildren<RightHandController>();
-        rightHandController.GrabGun();
+
+        if (rightHandController != null)
+        {
+
+            rightHandController.GrabGun();
+        }
+        else if (rightHandController == null) {
+            rightHandController = GetComponentInChildren<RightHandController>();
+            rightHandController.GrabGun();
+        }
+       
     }
 
     public void Drop() {
-        rightHandController = GetComponentInChildren<RightHandController>();
+        
         rightHandController.DropGun();
-
     }
 
     

@@ -4,15 +4,42 @@ using UnityEngine;
 
 public class Manager : MonoBehaviour
 {
+
+    public static Manager manager;
+
+
+    SoundManager soundManager = new SoundManager();//소리 
+
+    public static SoundManager SOUNDMANAGER { get { return manager.soundManager; } }
+
+    static void Init()
+    {
+
+
+
+        manager = FindObjectOfType<Manager>();
+       
+        manager.soundManager.Init();//사운드 매니저 초기화
+        
+
+
+
+
+
+    }
+
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        DontDestroyOnLoad(gameObject);
+        Init();
+        if (manager != null)
+        {
+            Debug.Log("매니저 로드 성공");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }
