@@ -6,7 +6,9 @@ public class LeftXrController : MonoBehaviour
 {
     public LeftHandController LeftHandController;
     // Start is called before the first frame update
-   
+
+    public AudioClip EquipMagazine_sfx;
+
 
     public void Grab()
     {
@@ -21,7 +23,7 @@ public class LeftXrController : MonoBehaviour
             LeftHandController = GetComponentInChildren<LeftHandController>();
             LeftHandController.GrabGranade();
         }
-
+        Manager.SOUNDMANAGER.Play_Position(transform.position, EquipMagazine_sfx, 1.2f);
     }
 
     public void Drop()
