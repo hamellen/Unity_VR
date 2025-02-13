@@ -13,6 +13,7 @@ public class GunController : MonoBehaviour
     public Animator gun_animator;
     public AudioClip fire_sfx;
     public AudioClip empty_sfx;
+    public AudioClip Equip_Magazine_sfx;
 
     public float valid_length;
 
@@ -93,7 +94,7 @@ public class GunController : MonoBehaviour
 
 
     public void Reload() {
-
+        Manager.SOUNDMANAGER.Play_Position(transform.position, Equip_Magazine_sfx, 1.2f);
         current_ammo = full_ammo;
         UpdateText(); 
         

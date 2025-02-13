@@ -5,9 +5,11 @@ using UnityEngine.AI;
 
 public class MonsterController : MonoBehaviour
 {
+
+  
     public Transform central_point;
     public int random_range_move;
-    public AudioClip hit_sfx;
+    public AudioClip dead_sfx;
     Animator animator;
     NavMeshAgent agent;
 
@@ -18,6 +20,7 @@ public class MonsterController : MonoBehaviour
     [SerializeField] float attack_distance = 0f;
     [SerializeField] LayerMask view_layermask = 0;
 
+    XrController xrController;
 
     // Start is called before the first frame update
     void Start()
@@ -25,13 +28,13 @@ public class MonsterController : MonoBehaviour
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         central_point = transform;
-        
+        xrController = FindObjectOfType<XrController>();
     }
 
 
     public void Attack()
     {
-
+        Debug.Log("Zombie Attack");
         animator.SetTrigger("Attack");
         
         agent.isStopped = true;
@@ -47,8 +50,10 @@ public class MonsterController : MonoBehaviour
 
         Debug.Log($"좀비피격{hp}");
         if (hp <= 0) {
+           
             agent.isStopped = true;
             animator.SetBool("IsDead", true);
+            Manager.SOUNDMANAGER.Play_Position(transform.position, dead_sfx, 1.2f);
         }
 
     }
@@ -56,6 +61,12 @@ public class MonsterController : MonoBehaviour
     {
         Sight();
     }
+
+    public void Dead() {
+        xrController.Total_Count--;
+        Destroy(gameObject);
+    }
+    
 
     public void Patrol()
     {

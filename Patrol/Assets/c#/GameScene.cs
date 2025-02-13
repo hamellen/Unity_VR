@@ -12,7 +12,7 @@ public class GameScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Manager.SOUNDMANAGER.Play(Define.Sound.BGM, BGM_clip, 1.0f);
+        Manager.SOUNDMANAGER.Play(Define.Sound.BGM, BGM_clip, 1.0f);
     }
 
     // Update is called once per frame

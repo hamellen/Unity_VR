@@ -9,8 +9,9 @@ public class Manager : MonoBehaviour
 
 
     SoundManager soundManager = new SoundManager();//소리 
-
+    TokenManager tokenManager = new TokenManager();
     public static SoundManager SOUNDMANAGER { get { return manager.soundManager; } }
+    public static TokenManager TOKENMANAGER { get { return manager.tokenManager; } }
 
     static void Init()
     {
@@ -20,8 +21,8 @@ public class Manager : MonoBehaviour
         manager = FindObjectOfType<Manager>();
        
         manager.soundManager.Init();//사운드 매니저 초기화
-        
 
+       
 
 
 
