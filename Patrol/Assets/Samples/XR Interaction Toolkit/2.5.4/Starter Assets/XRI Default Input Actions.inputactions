@@ -697,7 +697,7 @@
                     "type": "Value",
                     "id": "e6005f29-e4c1-4f3b-8bf7-3a28bab5ca9c",
                     "expectedControlType": "Axis",
-                    "processors": "",
+                    "processors": "AxisDeadzone(min=0.3,max=1)",
                     "interactions": "",
                     "initialStateCheck": true
                 },
@@ -781,6 +781,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "ChangeHand",
+                    "type": "Button",
+                    "id": "f9f128c7-1c6f-4bcb-a277-4dcf6eecd424",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ChangeViewInventory",
+                    "type": "Button",
+                    "id": "641e289c-5e93-4d60-8fd1-f21235473aca",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -946,6 +964,28 @@
                     "processors": "ScaleVector2(x=0),StickDeadzone",
                     "groups": "Generic XR Controller",
                     "action": "Scale Delta",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a3220595-80e5-408f-8b69-38ba57dbdffc",
+                    "path": "<XRController>{LeftHand}/{PrimaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "ChangeHand",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1dc475aa-8f8c-4aa7-a713-8cef8d64bebd",
+                    "path": "<XRController>{LeftHand}/{SecondaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "ChangeViewInventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
