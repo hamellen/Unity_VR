@@ -76,6 +76,9 @@ Thumbs.db
 *.psd
 *.tiff
 *.tga
-
+*.FBX
+*.png
+*.wav
+*.pdf
 # ========== 기타 프로젝트 불필요 요소 ==========
 /Assets/AssetStoreTools*
